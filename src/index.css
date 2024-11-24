@@ -76,3 +76,10 @@ button:focus-visible {
   display: flex;
   justify-content: center;
 }
+
+.big-input {
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  padding-inline: 8px;
+}
