@@ -69,6 +69,7 @@ button:focus-visible {
   margin: 0 auto;
   height: 100%;
   width: 800px;
+  background-color: #213547;
 }
 
 .fetchBtn {

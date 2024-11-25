@@ -1,10 +1,7 @@
-import { log } from "console";
+import { useHover } from "../hooks/useHover";
 
 function Demo() {
-  // const { hovered, ref } = useHover();
-  const [hovered, setHovered] = useState(false);
-  const ref = useRef();
-  console.log(ref);
+  const { hovered, ref } = useHover();
   
   return (
     <div ref={ref}>
