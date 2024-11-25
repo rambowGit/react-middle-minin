@@ -1,4 +1,4 @@
-import Demo from './components/UseHoverDemo';
+import Demo from './components/UseViewportSizeDemo';
 import './index.css';
 
 function App() {
