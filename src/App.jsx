@@ -1,4 +1,4 @@
-import Demo from './components/UseViewportSizeDemo';
+import Demo from './components/UseWindowScrollDemo';
 import './index.css';
 
 function App() {
