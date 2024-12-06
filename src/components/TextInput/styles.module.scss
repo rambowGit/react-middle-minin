@@ -1,0 +1,58 @@
+:root {
+  --font-xs: 0.5em;  
+  --font-sm: 0.75em;  
+  --font-md: 1em;  
+  --font-lg: 1.25em;  
+  --font-xl: 1.75em;
+  
+  --radius-xs: 1px;  
+  --radius-sm: 5px;  
+  --radius-md: 15px;
+  --radius-lg: 25px;  
+  --radius-xl: 35px;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+/* input */
+.inputWrapper { 
+  &__radius {
+    border-radius: var(--radius-sm);
+    &_xs {
+      border-radius: var(--radius-xs);
+    } 
+    &_sm {
+      border-radius: var(--radius-sm);
+    } 
+    &_md {
+      border-radius: var(--radius-md);
+    }
+    &_lg {
+      border-radius: var(--radius-lg);
+    }_xl {
+      border-radius: var(--radius-xl);
+    }
+  } 
+  &__font {
+    font-size: 16px;
+    &_xs {
+      font-size: var(--font-xs);
+    } 
+    &_sm {
+      font-size: var(--font-sm);
+    } 
+    &_md {
+      font-size: var(--font-md);
+    }
+    &_lg {
+      font-size: var(--font-lg);
+    }_xl {
+      font-size: var(--font-xl);
+    }
+  }
+}

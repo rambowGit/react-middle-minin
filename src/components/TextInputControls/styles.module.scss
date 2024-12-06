@@ -1,0 +1,77 @@
+.root {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  /* padding: 1rem; */
+  /* border: 1px solid gray; */
+  border-radius: .5rem;
+  
+  & .inputComponent {
+   
+    flex: 1 0 50%;
+    border-right: 1px solid gray;
+    padding-left: 1rem;
+  }
+  
+  & .configComponent {
+    flex: 1 0 50%;
+    padding-left: 1rem;
+
+  }
+}
+
+
+
+/* Slider */
+.rangeSlider {
+  flex: 1;
+  width: var(--input-width);
+
+}
+
+.sliderticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.sliderticks span {
+  display: flex;
+  justify-content: center;
+  // width: 1px;
+  // height: 10px;
+  // background: #d3d3d3;
+  // line-height: 40px;
+}
+
+input[type="range"] {
+  /* removing default appearance */
+  appearance: none; 
+  /* creating a custom design */
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  
+  /* New additions */
+  height: 6px;
+  background: #ccc;
+}
+
+/* Thumb: webkit */
+input[type="range"]::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none; 
+  /* creating a custom design */
+  height: 15px;
+  width: 15px;
+  background-color: var(--color-bg-blue);
+  border-radius: 50%;
+  border: none;
+
+  /* box-shadow: -407px 0 0 400px #f50; emove this line */
+  transition: .2s ease-in-out;
+}

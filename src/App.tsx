@@ -1,9 +1,10 @@
-import UseLocalStorageDemo from './components/UseLocalStorageDemo';
+import Home from "./Pages/Home/component";
+
 
 function App() {
 
   return (
-    <UseLocalStorageDemo />
+   <Home />
   );
 }
 

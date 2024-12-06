@@ -1,0 +1,137 @@
+:root {
+  --font-xs: 0.5em;
+  --font-sm: 0.75em;
+  --font-md: 1em;
+  --font-lg: 1.25em;
+  --font-xl: 1.75em;
+
+  --radius-xs: 1px;
+  --radius-sm: 3px;
+  --radius-md: 10px;
+  --radius-lg: 15px;
+  --radius-xl: 25px;
+  
+  --color-alert: #fa5252;
+  --color-bg-dark: #2e2e2e;
+  --color-bg-dark-filled: #3b3b3b;
+  --color-bg-blue: #1971c2;
+  --color-text-main: #c9c9c9;
+  --color-text-dark: #828282;
+  
+  --input-width: 17rem;
+  
+}
+
+.labelWrapper {
+  font-size: 16px;
+  color: var(--color-text-main);
+}
+
+.descriptionWrapper {
+  font-size: 14px;
+  color: var(--color-text-dark);
+}
+
+.inputWrapper {
+  font-size: 16px;
+  border-radius: var(--radius-sm);
+  
+  
+  & input {
+    color: var(--color-text-main);
+    background-color: var(--color-bg-dark);
+    display: block;
+    min-height: 1rem;
+    padding: .5rem;
+  }
+
+   & :focus {
+    outline: none;
+    
+   }
+
+  &__radius {
+    &_xs {
+      border-radius: var(--radius-xs);
+    }
+
+    &_sm {
+      border-radius: var(--radius-sm);
+    }
+
+    &_md {
+      border-radius: var(--radius-md);
+    }
+
+    &_lg {
+      border-radius: var(--radius-lg);
+    }
+
+    &_xl {
+      border-radius: var(--radius-xl);
+    }
+  }
+}
+
+.errorWrapper {
+  font-size: 14px;
+  color: var(--color-alert);
+  border-color: var(--color-alert);
+  & input {
+    color: var(--color-alert);
+  }
+  & input:focus { 
+    outline: none;
+    border-color: var(--color-alert);
+    color: var(--color-alert);
+  }
+}
+
+.font-size {
+  &_xs {
+    font-size: var(--font-xs);
+    & input {
+      padding: .1rem;
+      min-height: .5rem;
+    }
+  }
+
+  &_sm {
+    font-size: var(--font-sm);
+    & input {
+      padding: .1rem;
+    }
+  }
+
+  &_md {
+    font-size: var(--font-md);
+  }
+
+  &_lg {
+    font-size: var(--font-lg);
+    & input {
+      padding: .7rem;
+    }
+  }
+
+  &_xl {
+    font-size: var(--font-xl);
+    & input {
+      padding: .8rem;
+    }
+  }
+}
+
+.inputRequired {
+  padding-left: .2rem;
+  color: var(--color-alert);
+}
+
+input.filled {
+  background-color: var(--color-bg-dark-filled);
+}
+
+input.unstyled {
+  background-color: transparent;
+  border: none;
+}

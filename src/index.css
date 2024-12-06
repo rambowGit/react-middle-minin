@@ -11,6 +11,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  --color-alert: #fa5252;
+  --color-bg-dark: #2e2e2e;
+  --color-bg-dark-filled: #3b3b3b;
+  --color-bg-blue: #1971c2;
+  --color-text-main: #c9c9c9;
+  --color-text-dark: #828282;
+  
+  --input-width: 17rem;
 }
 
 a {
@@ -64,6 +73,19 @@ button:focus-visible {
   }
 }
 
+select,
+input[type="text"],
+input[type="number"] {
+  display: block;
+  width: var(--input-width);
+  color: #c9c9c9;
+  border: 1px solid #424242;
+  background-color: #2e2e2e;
+  min-height: 1rem;
+  padding: .5rem;
+  border-color: var(--color-bg-dark);
+}
+
 .container {
   padding: 24px;
   margin: 0 auto;
@@ -83,4 +105,19 @@ button:focus-visible {
   height: 40px;
   font-size: 20px;
   padding-inline: 8px;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: .3rem;
+  margin-bottom: 1.5rem;
 }
