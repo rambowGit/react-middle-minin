@@ -1,25 +1,43 @@
 .root {
   display: flex;
+  flex-direction: column;
   height: 960px;
   padding: 1rem;
   
-  & .sectionLeft{
-    position: relative;
+  & .header {
     display: flex;
-    justify-content: center;
-    flex: 1;
-    border-right: solid 1px grey;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+    border: 1px solid var(--color-border-dark);
+    border-radius: 3px;
+    padding: 1rem;
   }
   
-  & .sectionRight{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex: 1;
+  & .content {
+    margin: 0 auto;
+    padding: 2rem;
+    width: 900px;
+    height: 100%;
   }
 }
 
-.btn__center {
+.sectionLeft{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  border-right: solid 1px grey;
+}
+
+.sectionRight{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.center {
   position: absolute;
   top: 50%;
   left: 50%;

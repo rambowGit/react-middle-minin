@@ -1,30 +1,17 @@
 import cn from "classnames";
 import { useEffect, useState } from "react";
 import Switch from "../Switch/component";
-import TextInput, { Radius, Size, Variant } from "../TextInput/component";
+import TextInput from "../TextInput/component";
+import { Radius, RADIUS_NUMBER, Size, SIZE_NUMBER, Variant } from "../Types/types";
 import styles from "./styles.module.scss";
 
-const SIZE_NUMBER = {
-  [Size.xs]: 0,
-  [Size.sm]: 25,
-  [Size.md]: 50,
-  [Size.lg]: 75,
-  [Size.xl]: 100,
-};
 
-const RADIUS_NUMBER = {
-  [Size.xs]: 0,
-  [Size.sm]: 25,
-  [Size.md]: 50,
-  [Size.lg]: 75,
-  [Size.xl]: 100,
-};
 
 const TextInputControls: React.FC = () => {
   const [variant, setVariant] = useState<Variant>(Variant.Default);
   const [size, setSize] = useState<Size>(Size.md);
   const [sizeNumber, setSizeNumber] = useState<number>(SIZE_NUMBER[size]);
-  const [radius, setRadius] = useState<Radius>(Radius.md);
+  const [radius, setRadius] = useState<Radius>(Radius.sm);
   const [radiusNumber, setRadiusNumber] = useState<number>(
     RADIUS_NUMBER[radius]
   );
@@ -32,6 +19,8 @@ const TextInputControls: React.FC = () => {
   const [withAsterisk, setWithAsterisk] = useState<boolean>(false);
   const [description, setDescription] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const [withIcon, setWithIcon] = useState<boolean>(false);
+
   
   useEffect(() => {
     setSizeNumber(SIZE_NUMBER[size]);
@@ -78,6 +67,10 @@ const TextInputControls: React.FC = () => {
   const onAsteriskChange = (isChecked: boolean) => {
     setWithAsterisk(isChecked);
   }
+  
+  const onIconChange = (isChecked: boolean) => {
+    setWithIcon(isChecked);
+  }
 
   return (
     <div className={styles.root}>
@@ -93,6 +86,7 @@ const TextInputControls: React.FC = () => {
           size={size}
           radius={radius}
           disabled={false}
+          withIcon={withIcon}
         />
       </div>
 
@@ -188,6 +182,11 @@ const TextInputControls: React.FC = () => {
               // value={description}
               onChange={(e) => setError(e.target.value)}
             />
+          </div>
+           {/* Icon */}
+           <div className="formField">
+            <label htmlFor="icon">With Icon</label>
+            <Switch onChecked={onIconChange}/>
           </div>
         </div>
       </div>
