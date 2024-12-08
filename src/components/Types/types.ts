@@ -34,3 +34,22 @@ export const RADIUS_NUMBER = {
   [Size.lg]: 75,
   [Size.xl]: 100,
 };
+
+export type SigninForm = {
+  login: string;
+  password: string;
+} 
+
+export type SignupForm = {
+  name: string;
+  nickName: string;
+  email: string;
+  gender: Gender | null;
+  password: string;
+  passwordRepeat: string;
+}
+
+export enum Gender {
+  Male = 'male',
+  Female = 'female'
+}

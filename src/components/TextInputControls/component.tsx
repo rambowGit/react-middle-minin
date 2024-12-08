@@ -76,8 +76,9 @@ const TextInputControls: React.FC = () => {
     <div className={styles.root}>
       <div className={cn(styles.inputComponent)}>
         <TextInput
+          id="test"
           variant={variant}
-          inputValue={""}
+          value={""}
           placeholder="Your name"
           label={label}
           description={description}

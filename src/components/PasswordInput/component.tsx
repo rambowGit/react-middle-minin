@@ -1,4 +1,4 @@
-import { IconAt } from "@tabler/icons-react";
+import { IconEye } from "@tabler/icons-react";
 import cn from "classnames";
 import { useEffect, useRef, useState } from "react";
 import { Radius, Size, Variant } from "../Types/types";
@@ -36,7 +36,7 @@ const TextInput: React.FC<Props> = ({
   withIcon,
 }) => {
   const [iconSize, setIconSize] = useState<string>('1em');
-  const icon = <IconAt size={iconSize}/>;
+  const icon = <IconEye size={iconSize}/>;
   const ref = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => {
@@ -119,7 +119,7 @@ const TextInput: React.FC<Props> = ({
               {icon}
             </div>}
             <input
-              type='text'
+              type='password'
               ref={ref}
               name={id}
               required={true}
@@ -128,6 +128,7 @@ const TextInput: React.FC<Props> = ({
               placeholder={placeholder}
               onChange={() => null}
               className={cn(inputStyle, inputFilledStyle, inputUnstyledStyle)}
+              autoComplete={'additional-name'}
             />
           </div>
         </div>

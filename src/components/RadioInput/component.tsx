@@ -1,6 +1,5 @@
-import { IconAt } from "@tabler/icons-react";
 import cn from "classnames";
-import { useEffect, useRef, useState } from "react";
+import { FormEvent, useRef } from "react";
 import { Radius, Size, Variant } from "../Types/types";
 import "./styles.scss";
 
@@ -8,8 +7,7 @@ import "./styles.scss";
 
 type Props = {
   id: string;
-  value: string | number;
-  placeholder?: string;
+  values: string[];
   label?: string;
   description?: string;
   error?: string;
@@ -18,13 +16,12 @@ type Props = {
   size?: Size;
   disabled?: boolean;
   withAsterisk?: boolean;
-  withIcon?: boolean;
+  onInput: (event: FormEvent) => void;
 };
 
-const TextInput: React.FC<Props> = ({
+const RadioInput: React.FC<Props> = ({
   id,
-  value,
-  placeholder,
+  values,
   label,
   description,
   error,
@@ -33,35 +30,9 @@ const TextInput: React.FC<Props> = ({
   size,
   disabled,
   withAsterisk,
-  withIcon,
+  onInput,
 }) => {
-  const [iconSize, setIconSize] = useState<string>('1em');
-  const icon = <IconAt size={iconSize}/>;
   const ref = useRef<HTMLInputElement | null>(null)
-
-  useEffect(() => {
-    if (!size) {
-      return;
-    }
-    onSizeChange(size);
-  }, [size])
-  
-  const onSizeChange = (size: Size) =>
-    setIconSize(() => {
-      switch (size) {
-        case Size.xs:
-          return '0.5em';
-        case Size.sm:
-          return '0.75em';
-        case Size.md:
-          return '1em';
-        case Size.lg:
-          return '1.25em';
-        default:
-          return '1.75em';
-      }
-    });
-
 
   const inputStyle = cn({
     [`inputWrapper__radius_${radius}`]: true,
@@ -92,10 +63,11 @@ const TextInput: React.FC<Props> = ({
     [`font-size_${size}`]: true,
   });
   
-  const iconStyle = cn({
-    'iconLeft': true,
-    [`icon-size_${size}`]: true,
-  });
+  // const handleChange = (event) => {
+  //   const result = {[(event.target as HTMLInputElement) .name]: (event.target as HTMLInputElement).value};
+  //   console.log(result);
+    
+  // }
 
   return (
     <div className="root">
@@ -115,20 +87,25 @@ const TextInput: React.FC<Props> = ({
         )}
         <div className="inputWrapper">
           <div className={inputStyle}>
-            {withIcon && <div className={iconStyle}>
-              {icon}
-            </div>}
-            <input
-              type='text'
-              ref={ref}
-              name={id}
-              required={true}
-              disabled={disabled}
-              value={value}
-              placeholder={placeholder}
-              onChange={() => null}
-              className={cn(inputStyle, inputFilledStyle, inputUnstyledStyle)}
-            />
+            {values.map((val, index) =>  
+            <div className="radioWrapper" key={index}>
+              <label>
+                {val}
+              </label>
+              <input
+                id={val}
+                type='radio'
+                ref={ref}
+                name={id}
+                required={true}
+                disabled={disabled}
+                value={val}
+                onInput={onInput}
+                className={cn(inputStyle, inputFilledStyle, inputUnstyledStyle)}
+              /> 
+            </div>
+           )}
+           
           </div>
         </div>
         {error && (
@@ -141,4 +118,4 @@ const TextInput: React.FC<Props> = ({
   );
 };
 
-export default TextInput;
+export default RadioInput;
