@@ -60,12 +60,13 @@ const Signin: React.FC<Props> = ({ onSubmit }) => {
           radius={Radius.sm}
           disabled={false}
           withIcon={true}
+          onInput={() => null}
         />
         
         <PasswordInput
           id={'password'}
           variant={Variant.Default}
-          inputValue={form.password}
+          value={form.password}
           placeholder="password"
           label={'Password'}
           description={'enter password'}
@@ -75,6 +76,7 @@ const Signin: React.FC<Props> = ({ onSubmit }) => {
           radius={Radius.sm}
           disabled={false}
           withIcon={true}
+          onInput={() => null}
         />
         
         <div className="center" style={{top: '23rem'}}>

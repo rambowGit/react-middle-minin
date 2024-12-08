@@ -1,6 +1,6 @@
 import { IconAt } from "@tabler/icons-react";
 import cn from "classnames";
-import { useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Radius, Size, Variant } from "../Types/types";
 import "./styles.scss";
 
@@ -19,6 +19,7 @@ type Props = {
   disabled?: boolean;
   withAsterisk?: boolean;
   withIcon?: boolean;
+  onInput: (event: FormEvent) => void;
 };
 
 const TextInput: React.FC<Props> = ({
@@ -34,6 +35,7 @@ const TextInput: React.FC<Props> = ({
   disabled,
   withAsterisk,
   withIcon,
+  onInput,
 }) => {
   const [iconSize, setIconSize] = useState<string>('1em');
   const icon = <IconAt size={iconSize}/>;
@@ -64,10 +66,13 @@ const TextInput: React.FC<Props> = ({
 
 
   const inputStyle = cn({
-    [`inputWrapper__radius_${radius}`]: true,
+    [`radius-size_${radius}`]: true,
     [`font-size_${size}`]: true,
     errorWrapper: !!error,
   });
+  
+  console.log(inputStyle);
+  
 
   const inputFilledStyle = cn({
     filled: variant === Variant.Filled,
@@ -127,6 +132,7 @@ const TextInput: React.FC<Props> = ({
               value={value}
               placeholder={placeholder}
               onChange={() => null}
+              onInput={onInput}
               className={cn(inputStyle, inputFilledStyle, inputUnstyledStyle)}
             />
           </div>

@@ -1,5 +1,5 @@
 import cn from "classnames";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Switch from "../Switch/component";
 import TextInput from "../TextInput/component";
 import { Radius, RADIUS_NUMBER, Size, SIZE_NUMBER, Variant } from "../Types/types";
@@ -8,6 +8,7 @@ import styles from "./styles.module.scss";
 
 
 const TextInputControls: React.FC = () => {
+  const [value, setValue] = useState<string>('');
   const [variant, setVariant] = useState<Variant>(Variant.Default);
   const [size, setSize] = useState<Size>(Size.md);
   const [sizeNumber, setSizeNumber] = useState<number>(SIZE_NUMBER[size]);
@@ -78,7 +79,7 @@ const TextInputControls: React.FC = () => {
         <TextInput
           id="test"
           variant={variant}
-          value={""}
+          value={value}
           placeholder="Your name"
           label={label}
           description={description}
@@ -88,6 +89,7 @@ const TextInputControls: React.FC = () => {
           radius={radius}
           disabled={false}
           withIcon={withIcon}
+          onInput={(e: FormEvent) => setValue((e.target as HTMLInputElement).value)}
         />
       </div>
 

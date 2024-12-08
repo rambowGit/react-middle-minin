@@ -65,6 +65,7 @@ const Signup: React.FC<Props> = ({ onSubmit }) => {
           radius={Radius.sm}
           disabled={false}
           withIcon={false}
+          onInput={() => null}
         />
         <TextInput
           id={'nickName'}
@@ -79,6 +80,8 @@ const Signup: React.FC<Props> = ({ onSubmit }) => {
           radius={Radius.sm}
           disabled={false}
           withIcon={true}
+          onInput={() => null}
+
         />
         <TextInput
           id={'email'}
@@ -93,6 +96,7 @@ const Signup: React.FC<Props> = ({ onSubmit }) => {
           radius={Radius.sm}
           disabled={false}
           withIcon={false}
+          onInput={() => null}
         />
         <RadioInput
           id={'gender'}
@@ -121,6 +125,7 @@ const Signup: React.FC<Props> = ({ onSubmit }) => {
           radius={Radius.sm}
           disabled={false}
           withIcon={true}
+          onInput={() => null}
         />
         <PasswordInput
           id={'passwordRepeat'}
@@ -135,6 +140,7 @@ const Signup: React.FC<Props> = ({ onSubmit }) => {
           radius={Radius.sm}
           disabled={false}
           withIcon={true}
+          onInput={() => null}
         />
         
         <div className="center" style={{top: '51rem'}}>
