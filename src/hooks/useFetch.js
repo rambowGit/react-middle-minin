@@ -27,7 +27,7 @@ const useFetch = (url, requesrParams = {}) => {
       setError(err.message);
     });
     
-  }, []);
+  }, [url, requesrParams]);
   
   const refetch = useCallback((requesrParams={}) => {
     const params = new URLSearchParams(requesrParams.params).toString();
