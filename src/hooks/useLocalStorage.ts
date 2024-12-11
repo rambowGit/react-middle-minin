@@ -1,47 +1,42 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState } from 'react';
 
 type LocalStorageSetValue = string;
 type LocalStorageReturnValue = LocalStorageSetValue | null;
 
-type UseLocalStorage = (key: string) => [
-  value: LocalStorageReturnValue,
+// type UseLocalStorage = (key: string) => [
+//   value: LocalStorageReturnValue,
+//   {
+//     setItem: (value: LocalStorageSetValue) => void;
+//     removeItem: () => void;
+//   },
+// ];
+
+function getValueStorage(key: string): LocalStorageReturnValue {
+
+  const item = localStorage.getItem(key);
+  return item === null ? null :  JSON.parse(item);
+}
+
+export function useLocalStorage(key: string): 
+[value: LocalStorageReturnValue,
   {
     setItem: (value: LocalStorageSetValue) => void;
     removeItem: () => void;
   },
-];
+] {
 
-
-function getValueStorage(key: string): string | null {
-  if (!localStorage.getItem(key) || localStorage.getItem(key) == 'undefined') {
-    return null;
-  }
-  
-  return JSON.parse(localStorage.getItem(key));
-}
-
-
-export function useLocalStorage(key: string): UseLocalStorage {
-  const [item, setItem] = useState<LocalStorageReturnValue>(() => getValueStorage(key));
+  const [item, setItem] = useState<LocalStorageReturnValue>(() =>
+    getValueStorage(key)
+  );
 
   const removeItem = (): void => {
+    localStorage.removeItem(key);
     setItem(null);
-    localStorage.removeItem(key)
   };
-  
-  useEffect(() => {
-    if (item  == null || item == 'undefined') {
-      localStorage.removeItem(key)
-      return;  
-    } else {
-      if (typeof(item) == 'string') {
-        localStorage.setItem(key, JSON.stringify(item));
-      }
-    }
-    
+
+  useEffect(() => {    
+    localStorage.setItem(key, JSON.stringify(item));
   }, [key, item]);
-  
+
   return [item, { setItem, removeItem }];
-  
 }

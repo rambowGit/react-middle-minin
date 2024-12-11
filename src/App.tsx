@@ -1,10 +1,7 @@
 import UseLocalStorageDemo from './components/UseLocalStorageDemo';
 
 function App() {
-
-  return (
-    <UseLocalStorageDemo />
-  );
+  return <UseLocalStorageDemo />;
 }
 
-export default App
+export default App;
