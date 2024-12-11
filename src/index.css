@@ -1,0 +1,144 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  --color-alert: #fa5252;
+  --color-bg-dark: #2e2e2e;
+  --color-bg-dark-filled: #3b3b3b;
+  --color-bg-blue: #1971c2;
+  --color-text-main: #c9c9c9;
+  --color-text-dark: #828282;
+  --color-border-dark: #424242;
+  --color-border-blue: #1971c2;
+ 
+  --input-width: 17rem;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+select,
+input[type="text"],
+input[type="number"] {
+  display: block;
+  width: var(--input-width);
+  color: #c9c9c9;
+  border: 1px solid var(--color-border-dark);
+  background-color: #2e2e2e;
+  min-height: 1rem;
+  padding: .5rem;
+  border-radius: 3px;
+  &:focus {
+    outline: none;
+    border: solid 1px;
+    border-color: var(--color-border-blue);
+  }
+}
+input {
+  border: 1px solid var(--color-border-dark);
+  border-radius: 3px;
+  &:focus {
+    outline: none;
+    border: solid 1px;
+    border-color: var(--color-border-blue);
+  }
+}
+
+.container {
+  padding: 24px;
+  margin: 0 auto;
+  height: 100%;
+  width: 800px;
+  background-color: #213547;
+}
+
+.fetchBtn {
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.big-input {
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  padding-inline: 8px;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  /* align-items: start; */
+  gap: .3rem;
+  margin-bottom: 1.5rem;
+}
