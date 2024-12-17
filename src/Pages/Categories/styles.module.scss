@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  height: 70vh;
+  background-color: var(--color-bg-dark);
+  
+  & .sideBar {
+    flex: 0 1 20%;
+    padding: 2rem;
+    border-right: 1px solid var(--color-border-dark);
+    & li {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  & .content {
+    flex: 1 1 80%;
+    margin: 0 auto;
+  }
+}
