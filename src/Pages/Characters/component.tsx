@@ -1,28 +1,60 @@
+import { useNavigate } from "react-router-dom";
+import Card from "../../Components/UI/Card/component";
 import { Character } from "../../Types/character";
-import styles from './styles.module.scss';
+import { appRoutes } from "../../Types/routes";
+import styles from "./styles.module.scss";
 
 type Props = {
-  characters: Array<Character>
-}
+  characters: Array<Character>;
+};
 
 const Characters: React.FC<Props> = ({ characters }) => {
-  return ( 
-  <div className={styles.root}>
-    {characters.map((c) => (
-      <ul key={c.id}>
-        <li>
-          <div className={styles.image}>
-            <img src={c.image} />  
-          </div>
-          <div>
-           {c.name}
-          </div>
-          
-        </li>
-      </ul>
-    ))}
-  </div>
-   );
-}
- 
+  const navigate = useNavigate();
+  
+  const onNavigate = (id: string) => {
+    navigate(appRoutes.character(id));  
+  } 
+  
+  return (
+    <div className={styles.root}>
+      {characters.map((c) => (
+        <div key={c.id} style={{margin: '12px'}}>
+          <Card>
+            <div className={styles.container}>
+              <div>
+                <img
+                  src={c.image}
+                  className={styles.img}
+                  alt={`image ${c.id}`}
+                />
+              </div>
+              <div className={styles.items}>
+                <div className={styles.item}>
+                  <span className={styles.item__title}>Имя: </span>
+                  {c.name}
+                </div>
+                <div className={styles.item}>
+                  <span className={styles.item__title}>Пол: </span>
+                  {c.gender}
+                </div>
+                <div className={styles.item}>
+                  <span className={styles.item__title}>Расса: </span>
+                  {c.species}
+                </div>
+                <div className={styles.item}>
+                  <span className={styles.item__title}>Статус: </span>
+                  {c.status}
+                </div>
+                <div className={styles.item} onClick={() => onNavigate(String(c.id))}>
+                  <span className={styles.item__more}>Подробнее.. </span>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export default Characters;

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import CategoriesContainer from "./Pages/Categories/container";
+import CharacterDetails from "./Pages/Character/container";
 import CharactersContainer from "./Pages/Characters/container";
 import EpisodesContainer from "./Pages/Episodes/container";
 import Home from "./Pages/Home/component";
@@ -22,13 +23,25 @@ function App() {
             path={appRoutes.characters}
             element={<CharactersContainer />}
           />
+           <Route
+            path={`${appRoutes.characters}/:id`}
+            element={<CharacterDetails />}
+          />
           <Route
             path={appRoutes.locations}
             element={<LocationsContainer />}
           />
+           <Route
+            path={appRoutes.location('id')}
+            element={<></>}
+          />
           <Route
             path={appRoutes.episodes}
             element={<EpisodesContainer />}
+          />
+          <Route
+            path={appRoutes.episode('id')}
+            element={<></>}
           />
         </Route>
       </Route>      

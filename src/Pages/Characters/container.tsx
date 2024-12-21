@@ -4,10 +4,8 @@ import { Character } from '../../Types/character';
 import Characters from "./component";
 
 const CharactersContainer: React.FC = () => {
-  const [characters, setCharacters] = useState<Array<Character>>(data);
-  
-  console.log('characters:', data);
-  
+  const [characters] = useState<Array<Character>>(data);
+    
   return ( 
     <>
       {characters ? <Characters characters={characters}/> : 'Персонажы не найдены' }

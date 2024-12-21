@@ -1,0 +1,42 @@
+.root {
+  height: 75vh;
+  overflow-y: auto;
+  
+  & .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;  
+    gap: 32px;
+    
+    & .items {
+      width: 100%;
+    }
+    
+    & .item {
+      margin-bottom: 12px;
+      &__title{
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--color-text-dark);
+      }
+      &__more {
+        font-size: 14px;
+        font-weight: bold;
+        color: var(--color-alert);
+        cursor: pointer;
+      }
+    }
+    
+    & .item:last-child {
+      text-align: right;
+      padding-right: 8px;
+    }
+  }
+  
+  & .img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+}
