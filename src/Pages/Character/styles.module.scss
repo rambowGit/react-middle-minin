@@ -1,7 +1,6 @@
 .root {
-  height: 75vh;
-  overflow-y: auto;
-  
+  padding: 16px;
+
   & .container {
     display: flex;
     justify-content: flex-start;
@@ -19,10 +18,10 @@
         font-weight: bold;
         color: var(--color-text-dark);
       }
-      &__more {
+      &__back {
         font-size: 14px;
         font-weight: bold;
-        color: var(--color-alert);
+        color: var(--color-bg-blue);
         cursor: pointer;
       }
     }

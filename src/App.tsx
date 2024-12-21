@@ -32,7 +32,7 @@ function App() {
             element={<LocationsContainer />}
           />
            <Route
-            path={appRoutes.location('id')}
+            path={`${appRoutes.locations}/:id`}
             element={<></>}
           />
           <Route
@@ -40,7 +40,7 @@ function App() {
             element={<EpisodesContainer />}
           />
           <Route
-            path={appRoutes.episode('id')}
+            path={`${appRoutes.episodes}/:id`}
             element={<></>}
           />
         </Route>

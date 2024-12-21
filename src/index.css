@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   
   --color-alert: #fa5252;
+  --color-alert-dark: #c84141;
   --color-bg-dark: #2e2e2e;
   --color-bg-dark-filled: #3b3b3b;
   --color-bg-blue: #1971c2;
@@ -141,4 +142,12 @@ input {
   /* align-items: start; */
   gap: .3rem;
   margin-bottom: 1.5rem;
+}
+
+
+.activeLink {
+  color: var(--color-alert);
+  &:hover {
+    color: var(--color-alert-dark);
+  }
 }

@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { appRoutes } from "../../Types/routes";
 import styles from "./styles.module.scss";
 
@@ -10,13 +10,28 @@ const Categories: React.FC = () => {
         <div className={styles.sideBar}>
           <ul>
             <li>
-              <Link to={appRoutes.characters}>Персонажи</Link>
+              <NavLink
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+                to={appRoutes.characters}
+              >
+                Персонажи
+              </NavLink>
             </li>
             <li>
-              <Link to={appRoutes.locations}>Расположение</Link>
+              <NavLink
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+                to={appRoutes.locations}
+              >
+                Расположение
+              </NavLink>
             </li>
             <li>
-              <Link to={appRoutes.episodes}>Эпизоды</Link>
+              <NavLink
+                className={({ isActive }) => (isActive ? "activeLink" : "")}
+                to={appRoutes.episodes}
+              >
+                Эпизоды
+              </NavLink>
             </li>
           </ul>
         </div>

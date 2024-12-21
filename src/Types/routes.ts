@@ -1,9 +1,7 @@
 export const appRoutes = {
   home: '/',
-  categories: 'categories',
-  characters: 'characters',
-  episodes: 'episodes',
-  episode: (id: string) => `${id}`,
-  locations: 'locations',
-  location: (id: string) => `${id}`,
+  categories: '/categories',
+  characters: '/categories/characters',
+  episodes: '/categories/episodes',
+  locations: '/categories/locations',
 };

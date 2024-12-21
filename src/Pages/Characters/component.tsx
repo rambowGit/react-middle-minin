@@ -12,7 +12,7 @@ const Characters: React.FC<Props> = ({ characters }) => {
   const navigate = useNavigate();
   
   const onNavigate = (id: string) => {
-    navigate(appRoutes.character(id));  
+    navigate(`${appRoutes.characters}/${id}`);  
   } 
   
   return (
