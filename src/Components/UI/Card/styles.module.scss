@@ -1,8 +1,10 @@
 .root {
   padding: 16px;
   border: 1px solid var( --color-border-dark);
+  background-color: var(--color-bg-dark-hovered);
   border-radius: 5px;
-  & :hover {
-    background-color: var(--color-bg-dark-filled);
-  }
+}
+
+.root:hover {
+  // background-color: var(--color-bg-dark-hovered);
 }

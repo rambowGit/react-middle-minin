@@ -1,17 +1,16 @@
-import { useMemo } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Card from "../../Components/UI/Card/component";
-import data from "../../Data/characters.json";
 import { Character } from "../../Types/character";
 import styles from "./styles.module.scss";
 
-const CharacterDetails = () => {
-  const { id } = useParams();
+
+type Props = {
+  character: Character;
+}
+const CharacterDetails: React.FC<Props> = ({ character }) => {
+
   const navigate = useNavigate();
 
-  const character: Character | undefined = useMemo(() => {
-    return data.find((c) => c.id === Number(id));
-  }, [id]);
   return (
     character && ( <div className={styles.root}>
       <Card>
@@ -49,6 +48,6 @@ const CharacterDetails = () => {
     </div>
     )
   );
-};
-
+}
+ 
 export default CharacterDetails;

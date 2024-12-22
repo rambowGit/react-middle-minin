@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import Card from "../../Components/UI/Card/component";
 import { Episode } from "../../Types/episode";
+import { appRoutes } from "../../Types/routes";
 import styles from "./styles.module.scss";
 
 type Props = {
@@ -7,6 +9,17 @@ type Props = {
 };
 
 const Episodes: React.FC<Props> = ({ episodes }) => {
+  
+  const navigate = useNavigate();
+  
+  const onNavigate = (episode: Episode) => {
+    navigate(`${appRoutes.episodes}/${episode.id}`, {
+      state: {
+        episode
+      }
+    });  
+  } 
+  
   return (
     <div className={styles.root}>
       {episodes.map((e) => (
@@ -22,9 +35,8 @@ const Episodes: React.FC<Props> = ({ episodes }) => {
                   <span className={styles.item__title}>Дата релиза: </span>
                   {e.air_date}
                 </div>
-                <div className={styles.item}>
-                  <span className={styles.item__title}>Эпизод: </span>
-                  {e.episode}
+                <div className={styles.item} onClick={() => onNavigate(e)}>
+                  <span className={styles.item__more}>Подробнее.. </span>
                 </div>
               </div>
             </div>

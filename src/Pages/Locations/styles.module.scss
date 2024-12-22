@@ -1,7 +1,7 @@
 .root {
   height: 75vh;
   overflow-y: auto;
-  
+
   & .container {
     display: flex;
     justify-content: flex-start;
@@ -28,7 +28,7 @@
     }
     
     & .item:last-child {
-      text-align: right;
+      // text-align: right;
       padding-right: 8px;
     }
   }

@@ -1,12 +1,11 @@
 .root {
-  height: 75vh;
-  overflow-y: auto;
+  padding: 16px;
 
   & .container {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;  
-    gap: 32px;
     
     & .items {
       width: 100%;
@@ -19,16 +18,16 @@
         font-weight: bold;
         color: var(--color-text-dark);
       }
-      &__more {
+      &__back {
         font-size: 14px;
         font-weight: bold;
-        color: var(--color-alert);
+        color: var(--color-bg-blue);
         cursor: pointer;
       }
     }
     
     & .item:last-child {
-      // text-align: right;
+      text-align: right;
       padding-right: 8px;
     }
   }

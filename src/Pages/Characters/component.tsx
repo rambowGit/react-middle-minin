@@ -29,22 +29,9 @@ const Characters: React.FC<Props> = ({ characters }) => {
                 />
               </div>
               <div className={styles.items}>
-                <div className={styles.item}>
-                  <span className={styles.item__title}>Имя: </span>
+                <h3 className={styles.item}>
                   {c.name}
-                </div>
-                <div className={styles.item}>
-                  <span className={styles.item__title}>Пол: </span>
-                  {c.gender}
-                </div>
-                <div className={styles.item}>
-                  <span className={styles.item__title}>Расса: </span>
-                  {c.species}
-                </div>
-                <div className={styles.item}>
-                  <span className={styles.item__title}>Статус: </span>
-                  {c.status}
-                </div>
+                </h3>
                 <div className={styles.item} onClick={() => onNavigate(String(c.id))}>
                   <span className={styles.item__more}>Подробнее.. </span>
                 </div>
