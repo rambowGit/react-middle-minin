@@ -1,6 +1,19 @@
 .navList {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: flex-end;
   list-style: none;
+  
+  & .menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  & .signout {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+  }  
 }
+

@@ -4,4 +4,5 @@ export const appRoutes = {
   characters: '/categories/characters',
   episodes: '/categories/episodes',
   locations: '/categories/locations',
+  login: '/login',
 };
