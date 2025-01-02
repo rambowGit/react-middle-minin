@@ -1,3 +1,4 @@
+import { IconLogout } from "@tabler/icons-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../Hooks/auth";
 import { appRoutes } from "../../../Types/routes";
@@ -10,10 +11,11 @@ type Props = {
 const Header: React.FC<Props> = ({ className }) => {
   const navigate = useNavigate();
   const auth = useAuth();
+  const iconLogout = <IconLogout size={24}/>;
   
   const handleSignout = () => {
     auth?.signOut(() => {
-      navigate(appRoutes.home);
+      navigate(appRoutes.login);
     });
   }
   
@@ -40,7 +42,7 @@ const Header: React.FC<Props> = ({ className }) => {
           </div>
           <div className={styles.signout}>
           <li className={styles.signout} onClick={handleSignout}>
-           Выйти
+           {iconLogout}
           </li>
           </div>
         
