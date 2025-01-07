@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import AuthProvider from "./Hoc/AuthProvider";
+import PrivateRoute from "./Hoc/PrivateRoute";
 import NotFound from "./Pages/404/component";
 import CategoriesContainer from "./Pages/Categories/container";
 import CharacterDetailsContainer from "./Pages/CharacterDetails/container";
@@ -20,7 +21,13 @@ function App() {
         <Route path={`${appRoutes.login}`} element={<Login />} />
         <Route path={`${appRoutes.home}`} element={<Layout />}>
           <Route element={<Home />} index />
-          <Route path={appRoutes.categories} element={<CategoriesContainer />}>
+          <Route 
+            path={appRoutes.categories} 
+            element={
+              <PrivateRoute>
+                <CategoriesContainer />
+              </PrivateRoute>}
+          >
             <Route index element={<CharactersContainer />} />
             <Route
               index
@@ -29,7 +36,7 @@ function App() {
             />
             <Route
               path={`${appRoutes.characters}/:id`}
-              element={<CharacterDetailsContainer />}
+              element={<PrivateRoute><CharacterDetailsContainer /></PrivateRoute>}
             />
             <Route
               path={appRoutes.locations}
@@ -37,12 +44,12 @@ function App() {
             />
             <Route
               path={`${appRoutes.locations}/:id`}
-              element={<LocationDetails />}
+              element={<PrivateRoute><LocationDetails /></PrivateRoute>}
             />
             <Route path={appRoutes.episodes} element={<EpisodesContainer />} />
             <Route
               path={`${appRoutes.episodes}/:id`}
-              element={<EpisodeDetails />}
+              element={<PrivateRoute><EpisodeDetails /></PrivateRoute>}
             />
           </Route>
         </Route>

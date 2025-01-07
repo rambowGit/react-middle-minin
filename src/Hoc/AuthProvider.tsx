@@ -1,5 +1,6 @@
 import { ReactNode, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { useLocalStorage } from "../Hooks/useLocalStorage";
 import { Auth, User } from "../Types/context";
 
 type Props = {
@@ -7,15 +8,22 @@ type Props = {
 }
 
 const AuthProvider = ({ children }: Props) => {
-  const [user, setUser] = useState<User>({user: null});
+  const [userValue, { setItem, removeItem }] = useLocalStorage('user');
+  const [user, setUser] = useState<User>({user: userValue || null});
   
   const signIn = (newUser: User, cb: () => void) => {
+    if (!newUser.user) {
+      return;
+    }
+    
+    setItem(newUser.user);
     setUser(newUser);
     cb();
   }
   
   const signOut = (cb: () => void) => {
     setUser({user: null});
+    removeItem();
     cb();
   }
   

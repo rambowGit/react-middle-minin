@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Hooks/auth';
 import { UsernameFormElement } from '../../Types/loginForm';
 import { appRoutes } from '../../Types/routes';
@@ -6,7 +6,9 @@ import styles from './styles.module.scss';
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const auth = useAuth();
+  const from = location.state?.from || appRoutes.home;
 
   const handleSubmit = (event: React.FormEvent<UsernameFormElement>): void => {
     event.preventDefault();
@@ -14,7 +16,9 @@ const Login = () => {
     const username = formData.get('username') as string;
 
     auth?.signIn({ user: username }, () => {
-      navigate(`${appRoutes.home}`);
+      navigate(from, {
+        replace: true,
+      });
     });
   };
 
