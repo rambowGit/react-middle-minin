@@ -5,3 +5,9 @@ export const appRoutes = {
   episodes: '/categories/episodes',
   locations: '/categories/locations',
 };
+
+// export enum CategoryTypes {
+//   characters = 'characters',
+//   episodes = 'episodes',
+//   locations = 'locations', 
+// }

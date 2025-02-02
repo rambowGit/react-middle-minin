@@ -7,6 +7,7 @@ import CharacterDetails from "./component";
 const CharacterDetailsContainer = () => {
   const { id } = useParams();
 
+
   const character: Character | undefined = useMemo(() => {
     return data.find((c) => c.id === Number(id));
   }, [id]);

@@ -6,7 +6,7 @@ type Props = {
   className?: string;
 }
 
-const Header: React.FC<Props> = ({ className }) => {
+const Header = ({ className }: Props) => {
   return ( 
     <nav className={className}>
       <ul className={styles.navList}>
