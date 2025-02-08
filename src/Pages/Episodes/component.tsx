@@ -8,7 +8,7 @@ type Props = {
   episodes: Array<Episode>;
 };
 
-const Episodes: React.FC<Props> = ({ episodes }) => {
+const Episodes = ({ episodes }: Props) => {
   
   const navigate = useNavigate();
   

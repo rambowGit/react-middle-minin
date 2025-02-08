@@ -3,7 +3,7 @@ import Card from "../../Components/UI/Card/component";
 import { Location } from "../../Types/location";
 import styles from "./styles.module.scss";
 
-const LocationDetails: React.FC = () => {
+const LocationDetails = () => {
   const navigate = useNavigate();
 
   const { state } = useLocation();

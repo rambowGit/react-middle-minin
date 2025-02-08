@@ -8,11 +8,15 @@ type Props = {
   characters: Array<Character>;
 };
 
-const Characters: React.FC<Props> = ({ characters }) => {
+const Characters = ({ characters }: Props) => {
   const navigate = useNavigate();
-  
-  const onNavigate = (id: string) => {
-    navigate(`${appRoutes.characters}/${id}`);  
+
+  const onNavigate = (character: Character) => {
+    navigate(`${appRoutes.characters}/${character.id}`, {
+      state: {
+        character
+      }
+    });  
   } 
   
   return (
@@ -32,7 +36,7 @@ const Characters: React.FC<Props> = ({ characters }) => {
                 <h3 className={styles.item}>
                   {c.name}
                 </h3>
-                <div className={styles.item} onClick={() => onNavigate(String(c.id))}>
+                <div className={styles.item} onClick={() => onNavigate(c)}>
                   <span className={styles.item__more}>Подробнее.. </span>
                 </div>
               </div>

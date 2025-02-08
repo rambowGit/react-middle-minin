@@ -1,10 +1,61 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { appRoutes } from "../../Types/routes";
+import { ReactNode, useCallback } from "react";
+import { NavLink } from "react-router-dom";
+import { Fragment } from "react/jsx-runtime";
+import { appRoutes, CategoryTypes } from "../../Types/routes";
+import CharacterDetails from "../CharacterDetails/component";
+import CharactersContainer from "../Characters/container";
+import EpisodeDetails from "../EpisodeDetails/component";
+import EpisodesContainer from "../Episodes/container";
+import LocationDetails from "../LocationDetails/component";
+import LocationsContainer from "../Locations/container";
 import styles from "./styles.module.scss";
 
-const Categories: React.FC = () => {
+type Props = {
+  type: CategoryTypes;
+  id?: string;
+}
+const Categories = ({type, id}: Props) => {
+  
+  const getCategoryComponent = useCallback((): ReactNode => {
+    if (!type) {
+      return <CharactersContainer />;
+    }
+    
+    let categoryComponent: ReactNode;
+    let categoryDetailsComponent: ReactNode;
+    
+    switch (type) {
+      case CategoryTypes.Characters: {
+        categoryComponent = <CharactersContainer />;
+        if (id) {
+          categoryDetailsComponent = <CharacterDetails />;
+        }
+        break;
+      }
+        
+      case CategoryTypes.Episodes:
+        categoryComponent = <EpisodesContainer />;
+        if (id) {
+          categoryDetailsComponent = <EpisodeDetails />;
+        }
+        break;
+      default:{
+        categoryComponent = <LocationsContainer />;
+        if (id) {
+          categoryDetailsComponent = <LocationDetails />;
+        }
+        break;
+      }
+    }
+    
+    const finalComponent = categoryDetailsComponent ? categoryDetailsComponent : categoryComponent;
+    return finalComponent;
+  }, [type, id]); 
+  
+
+  
   return (
-    <div>
+    <Fragment>
       <h2>Категории</h2>
       <section className={styles.root}>
         <div className={styles.sideBar}>
@@ -37,10 +88,10 @@ const Categories: React.FC = () => {
         </div>
 
         <div className={styles.content}>
-          <Outlet />
+          {getCategoryComponent()}
         </div>
       </section>
-    </div>
+    </Fragment>
   );
 };
 

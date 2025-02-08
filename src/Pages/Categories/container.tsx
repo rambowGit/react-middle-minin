@@ -1,8 +1,12 @@
+import { useParams } from "react-router-dom";
+import { CategoryTypes } from "../../Types/routes";
 import Categories from "./component";
 
-const CategoriesContainer: React.FC = () => {
-  return ( 
-    <Categories />
+const CategoriesContainer = () => {
+  const {type, id} = useParams();
+  
+  return (
+    <Categories type={type as CategoryTypes} id={id} />
    );
 }
  

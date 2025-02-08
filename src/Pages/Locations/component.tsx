@@ -8,7 +8,7 @@ type Props = {
   locations: Array<Location>;
 };
 
-const Locations: React.FC<Props> = ({ locations }) => {
+const Locations = ({ locations }: Props) => {
   
   const navigate = useNavigate();
   

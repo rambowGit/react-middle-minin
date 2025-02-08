@@ -3,7 +3,7 @@ import Card from "../../Components/UI/Card/component";
 import { Episode } from "../../Types/episode";
 import styles from "./styles.module.scss";
 
-const EpisodeDetails: React.FC = () => {
+const EpisodeDetails = () => {
   const navigate = useNavigate();
 
   const { state } = useLocation();

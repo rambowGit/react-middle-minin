@@ -1,15 +1,14 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Card from "../../Components/UI/Card/component";
 import { Character } from "../../Types/character";
 import styles from "./styles.module.scss";
 
 
-type Props = {
-  character: Character;
-}
-const CharacterDetails: React.FC<Props> = ({ character }) => {
+const CharacterDetails = () => {
 
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const character: Character = state.character;
 
   return (
     character && ( <div className={styles.root}>
