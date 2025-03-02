@@ -1,8 +1,9 @@
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from '../../Components/UI/Header/component';
-import MainContent from '../MainContent/component';
 import styles from './styles.module.scss';
 
-const Layout: React.FC = () => {
+const Layout = () => {
   
   return ( 
     <div className={styles.root}>
@@ -11,7 +12,9 @@ const Layout: React.FC = () => {
       </header>
       
       <main className={styles.content}>
-        <MainContent />
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Outlet />
+      </Suspense>
       </main>
     </div>
    );

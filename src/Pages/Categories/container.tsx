@@ -1,6 +1,6 @@
 import Categories from "./component";
 
-const CategoriesContainer: React.FC = () => {
+const CategoriesContainer = () => {
   return ( 
     <Categories />
    );

@@ -1,18 +1,20 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import AuthProvider from "./Hoc/AuthProvider";
 import PrivateRoute from "./Hoc/PrivateRoute";
-import NotFound from "./Pages/404/component";
-import CategoriesContainer from "./Pages/Categories/container";
-import CharacterDetailsContainer from "./Pages/CharacterDetails/container";
-import CharactersContainer from "./Pages/Characters/container";
-import EpisodeDetails from "./Pages/EpisodeDetails/component";
-import EpisodesContainer from "./Pages/Episodes/container";
-import Home from "./Pages/Home/component";
 import Layout from "./Pages/Layout/component";
-import LocationDetails from "./Pages/LocationDetails/component";
-import LocationsContainer from "./Pages/Locations/container";
 import Login from "./Pages/Login/component";
 import { appRoutes } from "./Types/routes";
+
+const Home = lazy(() => import('./Pages/Home/component'));
+const CategoriesContainer = lazy(() => import('./Pages/Categories/container'));
+const NotFound = lazy(() => import('./Pages/404/component'));
+const CharacterDetailsContainer = lazy(() => import('./Pages/CharacterDetails/container'));
+const CharactersContainer = lazy(() => import('./Pages/Characters/container'));
+const EpisodeDetails = lazy(() => import('./Pages/EpisodeDetails/component'));
+const EpisodesContainer = lazy(() => import('./Pages/Episodes/container'));
+const LocationDetails = lazy(() => import('./Pages/LocationDetails/component'));
+const LocationsContainer = lazy(() => import('./Pages/Locations/container'));
 
 function App() {
   return (
